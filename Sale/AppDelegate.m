@@ -3,10 +3,14 @@
 //  Sale
 //
 //  Created by iterate on 11/21/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Quadsolutions Co., Ltd. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+
+#import "RootViewController.h"
+#import "DetailViewController.h"
 
 @implementation AppDelegate
 
@@ -22,8 +26,20 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    
+    RootViewController *rootViewController = [[RootViewController alloc] init];
+    DetailViewController *detailViewController = [[DetailViewController alloc] init];
+    
+    UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
+    
+    splitViewController.viewControllers = [NSArray arrayWithObjects:rootViewController, detailViewController, nil];
+    splitViewController.delegate = detailViewController;
+    
+    [self.window addSubview:splitViewController.view];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
