@@ -10,7 +10,6 @@
 
 @implementation Order
 
-@synthesize date         = _date;
 @synthesize customerCode = _customerCode;
 @synthesize role         = _role;
 @synthesize address      = _address;
@@ -25,10 +24,13 @@
 @synthesize firstRemark  = _firstRemark;
 @synthesize secondRemark = _secondRemark;
 
+@synthesize billTo       = _billTo;
+@synthesize shipTo       = _shipTo;
+
 - (id)init
 {
     if(self = [super init]) {
-        _date         = [[NSDate date] retain];
+        
         _customerCode = [[NSString stringWithFormat:@"Sample Code"] retain];
         _role         = [[NSString stringWithFormat:@"Sample Role"] retain];
         _address      = [[NSString stringWithFormat:@"Sample Address"] retain];
@@ -42,6 +44,10 @@
         _totalAmount  = [[NSString stringWithFormat:@"Sample Total Amount"] retain];
         _firstRemark  = [[NSString stringWithFormat:@"Sample First Remark"] retain];
         _secondRemark = [[NSString stringWithFormat:@"Sample Second Remark"] retain];
+        
+        _billTo       = [[NSString stringWithFormat:@"Sample Bill TO"] retain];
+        _shipTo       = [[NSString stringWithFormat:@"Sample Ship TO"] retain];
+        
     }
     
     return self;
@@ -62,6 +68,9 @@
     [_totalAmount release];
     [_firstRemark release];
     [_secondRemark release];
+    
+    [_billTo release];
+    [_shipTo  release];
     
     [super dealloc];
 }

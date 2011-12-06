@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Order : NSObject
-{
-    NSString *_date;
-    
+{   
     NSString *_customerCode;
     NSString *_role;
     NSString *_address;
@@ -26,9 +24,11 @@
     NSString *_totalAmount;
     NSString *_firstRemark;
     NSString *_secondRemark;
+    
+    NSString *_billTo;
+    NSString *_shipTo;
 }
 
-@property (nonatomic, retain) NSString *date;
 @property (nonatomic, retain) NSString *customerCode;
 @property (nonatomic, retain) NSString *role;
 @property (nonatomic, retain) NSString *address;
@@ -42,5 +42,8 @@
 @property (nonatomic, retain) NSString *totalAmount;
 @property (nonatomic, retain) NSString *firstRemark;
 @property (nonatomic, retain) NSString *secondRemark;
+
+@property (nonatomic, retain) NSString *billTo;
+@property (nonatomic, retain) NSString *shipTo;
 
 @end

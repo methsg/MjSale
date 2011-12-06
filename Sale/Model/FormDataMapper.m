@@ -1,27 +1,27 @@
 //
-//  DataManager.m
+//  FormDataMapper.m
 //  Sale
 //
-//  Created by iterate on 11/27/11.
+//  Created by iterate on 12/5/11.
 //  Copyright (c) 2011 Quadsolutions Co., Ltd. All rights reserved.
 //
 
-#import "DataManager.h"
+#import "FormDataMapper.h"
 #import "Invoice.h"
 #import "BackOrder.h"
 
-@implementation DataManager
+@implementation FormDataMapper
 
-static DataManager *sharedManager = nil;
+static FormDataMapper *dataMapper = nil;
 
-+ (DataManager *)sharedManager
++ (FormDataMapper *)dataMapper
 {
     @synchronized(self) {
-        sharedManager = [[DataManager alloc] init];
+        dataMapper = [[FormDataMapper alloc] init];
     }
-    return sharedManager;
+    
+    return dataMapper;
 }
-
 
 - (NSMutableArray *)getAllProducts
 {

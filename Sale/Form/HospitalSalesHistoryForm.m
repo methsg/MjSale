@@ -9,8 +9,9 @@
 #import "FormConstant.h"
 #import "FormCellGenerator.h"
 #import "FormUtility.h"
+#import "FormDataMapper.h"
 #import "HospitalSalesHistoryForm.h"
-#import "DataManager.h"
+
 #import "Hospital.h"
 #import "Invoice.h"
 #import "BackOrder.h"
@@ -50,8 +51,8 @@
         _backOrders = nil;
     }
     
-    _invoices = [[[DataManager sharedManager] getInvoicesWithHospitalId:_hospital.hospitalCode] retain];
-    _backOrders = [[[DataManager sharedManager] getBackOrderWithHospitalId:_hospital.hospitalCode] retain];
+    _invoices   = [[[FormDataMapper dataMapper] getInvoicesWithHospitalId:_hospital.hospitalCode] retain];
+    _backOrders = [[[FormDataMapper dataMapper] getBackOrderWithHospitalId:_hospital.hospitalCode] retain];
 }
 
 #pragma mark - View lifecycle

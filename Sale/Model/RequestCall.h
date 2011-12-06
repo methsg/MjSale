@@ -12,6 +12,7 @@
 
 @interface RequestCall : NSObject
 {
+    NSDate *_date;
     
     NSString *_profileCode;
     NSString *_hospitalName;
@@ -28,6 +29,8 @@
     
 }
 
+
+@property (nonatomic, retain) NSDate *date;
 @property (nonatomic, retain) NSString *profileCode;
 @property (nonatomic, retain) NSString *hospitalName;
 @property (nonatomic, retain) NSString *grade;

@@ -1,17 +1,16 @@
 //
-//  DataManager.h
+//  FormDataMapper.h
 //  Sale
 //
-//  Created by iterate on 11/27/11.
+//  Created by iterate on 12/5/11.
 //  Copyright (c) 2011 Quadsolutions Co., Ltd. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface DataManager : NSObject
+@interface FormDataMapper : NSObject
 
-
-+ (DataManager *)sharedManager;
++ (FormDataMapper *)dataMapper;
 
 - (NSMutableArray *)getAllProducts;
 - (NSMutableArray *)getInvoicesWithHospitalId:(NSString *)hospitalId;

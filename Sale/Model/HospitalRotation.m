@@ -31,9 +31,9 @@
 
 
 - (void)dealloc
-{
-    
+{ 
     [_year release];
+    [_rotationType release];
     
     [_firstProduct release];
     [_secondProduct release];

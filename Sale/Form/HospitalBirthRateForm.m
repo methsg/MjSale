@@ -241,10 +241,7 @@
         
         if (cellType == DoubleTextType) {
          
-            UITextField *firstTextField = (UITextField *)[cell viewWithTag:kCellFirstTextTag];
-            firstTextField.delegate = self;
-            
-            
+
         }
         
     }

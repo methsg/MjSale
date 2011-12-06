@@ -11,6 +11,8 @@
 
 @implementation RequestCall
 
+@synthesize date             = _date;
+
 @synthesize profileCode      = _profileCode;
 @synthesize hospitalName     = _hospitalName;
 @synthesize grade            = _grade;
