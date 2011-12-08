@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class Order;
+
 @interface FormDataMapper : NSObject
 
 + (FormDataMapper *)dataMapper;
@@ -15,5 +17,6 @@
 - (NSMutableArray *)getAllProducts;
 - (NSMutableArray *)getInvoicesWithHospitalId:(NSString *)hospitalId;
 - (NSMutableArray *)getBackOrderWithHospitalId:(NSString *)hospitalId;
+- (Order *)getOrderbycustomerCode:(NSString *)customerCode;
 
 @end

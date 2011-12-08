@@ -27,6 +27,8 @@
 @synthesize billTo       = _billTo;
 @synthesize shipTo       = _shipTo;
 
+@synthesize entries      = _entries;
+
 - (id)init
 {
     if(self = [super init]) {
@@ -48,6 +50,7 @@
         _billTo       = [[NSString stringWithFormat:@"Sample Bill TO"] retain];
         _shipTo       = [[NSString stringWithFormat:@"Sample Ship TO"] retain];
         
+        _entries      = [[NSMutableArray array] retain];
     }
     
     return self;
@@ -71,6 +74,8 @@
     
     [_billTo release];
     [_shipTo  release];
+    
+    [_entries release];
     
     [super dealloc];
 }

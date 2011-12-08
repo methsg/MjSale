@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FormConstant.h"
 
-@interface OrderForm : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@class Order;
+
+@interface OrderForm : UIViewController <UITableViewDelegate, UITableViewDataSource, FormProtocal>
 {
+    Order *_order;
+    
     UITableView  *_tableView;
     
     UIView       *_pickerContainerView;
@@ -19,6 +24,8 @@
     UIBarItem    *_cancelButton;
     UIBarItem    *_saveButton;
 }
+
+@property (nonatomic, retain) Order *order;
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 

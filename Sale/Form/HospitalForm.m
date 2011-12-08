@@ -11,6 +11,7 @@
 #import "Hospital.h"
 #import "HospitalForm.h"
 #import "RequestCallForm.h"
+#import "OrderForm.h"
 
 @implementation HospitalForm
 
@@ -126,10 +127,14 @@
             
            
         } else if(button == _visitButton) {
-         
+         /*
             RequestCallForm *requestCallForm = [[RequestCallForm alloc] init];
             [self presentModalViewController:requestCallForm animated:TRUE];
             [requestCallForm release];
+          */
+            OrderForm *orderForm = [[OrderForm alloc] init];
+            [self presentModalViewController:orderForm animated:TRUE];
+            [orderForm release];
         } else if (button == _cancelButton) {
             
             _mode = ReadOnly;

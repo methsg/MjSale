@@ -57,11 +57,12 @@
     
     UILabel *titleLabel = [self createTitleLabel];
     
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(190, 10, 290, 24)];
-    textField.tag = kCellTextTag;
-    textField.placeholder = @"Type Infomation Here";
-    textField.backgroundColor = [UIColor lightGrayColor];
-    textField.font = [UIFont systemFontOfSize:13];
+    UITextField *textField    = [[UITextField alloc] initWithFrame:CGRectMake(190, 10, 290, 24)];
+    textField.tag             = kCellTextTag;
+    textField.placeholder     = @"Type Infomation Here";
+    textField.font            = [UIFont systemFontOfSize:13];
+    textField.borderStyle     = UITextBorderStyleNone;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     [cell addSubview:titleLabel];    
     [cell addSubview:textField];
@@ -92,6 +93,7 @@
 {
     cell.tag = PickerType;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
     
     UILabel *titleLabel = [self createTitleLabel];
     
@@ -112,6 +114,24 @@
     [cell addSubview:button];
     
     [titleLabel release];
+}
+
++ (void)customizeTextAreaCell:(UITableViewCell *)cell
+{
+    UILabel *titleLabel = [self createTitleLabel];
+    
+    cell.tag = TextAreaType;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(200, 8, 300, 116)];
+    textView.tag         = kCellTextAreaTag;
+//    textView.backgroundColor = [UIColor clearColor];
+    
+    [cell addSubview:titleLabel];
+    [cell addSubview:textView];
+    
+    [titleLabel release];
+    [textView release];
 }
 
 + (void)customizeHeaderCell:(UITableViewCell *)cell
@@ -143,7 +163,119 @@
 
 + (void)customizeEntryCell:(UITableViewCell *)cell
 {
+    UILabel *indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 10, 50, 24)];
+    indexLabel.tag      = kCellIndexLabelTag;
+    indexLabel.textAlignment = UITextAlignmentLeft;
+    indexLabel.font          = [UIFont systemFontOfSize:11];
     
+    UILabel *productCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(105, 10, 75, 24)];
+    productCodeLabel.tag      = kCellProductCodeLabelTag;
+    productCodeLabel.textAlignment = UITextAlignmentLeft;
+    productCodeLabel.font          = [UIFont systemFontOfSize:11];
+    productCodeLabel.backgroundColor = [UIColor blackColor];
+    
+    UILabel *productName = [[UILabel alloc] initWithFrame:CGRectMake(185, 10, 75, 24)];
+    productName.tag      = kCellProductLabelTag;
+    productName.textAlignment = UITextAlignmentLeft;
+    productName.font          = [UIFont systemFontOfSize:11];
+    productName.backgroundColor = [UIColor blackColor];
+    
+    UILabel *quantityLabel = [[UILabel alloc] initWithFrame:CGRectMake(265, 10, 35, 24)];
+    quantityLabel.tag      = kCellQuantityLabelTag;
+    quantityLabel.textAlignment = UITextAlignmentLeft;
+    quantityLabel.font          = [UIFont systemFontOfSize:11];
+    
+    UILabel *freeLabel = [[UILabel alloc] initWithFrame:CGRectMake(305, 10, 30, 24)];
+    freeLabel.tag      = kCellFreeLabelTag;
+    freeLabel.textAlignment = UITextAlignmentLeft;
+    freeLabel.font          = [UIFont systemFontOfSize:11];
+    
+    UILabel *unitLabel = [[UILabel alloc] initWithFrame:CGRectMake(340, 10, 40, 24)];
+    unitLabel.tag      = kCellUnitLabelTag;
+    unitLabel.textAlignment = UITextAlignmentLeft;
+    unitLabel.font          = [UIFont systemFontOfSize:11];
+    
+    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(385, 10, 40, 24)];
+    priceLabel.tag      = kCellPriceLabelTag;
+    priceLabel.textAlignment = UITextAlignmentLeft;
+    priceLabel.font          = [UIFont systemFontOfSize:11];
+    
+    UILabel *amountLabel = [[UILabel alloc] initWithFrame:CGRectMake(430, 10, 60, 24)];
+    amountLabel.tag      = kCellAmountLabelTag;
+    amountLabel.textAlignment = UITextAlignmentLeft;
+    amountLabel.font          = [UIFont systemFontOfSize:11];
+    
+    [cell addSubview:indexLabel];
+    [cell addSubview:productCodeLabel];
+    [cell addSubview:productName];
+    [cell addSubview:quantityLabel];
+    [cell addSubview:freeLabel];
+    [cell addSubview:unitLabel];
+    [cell addSubview:priceLabel];
+    [cell addSubview:amountLabel];
+    
+    [indexLabel release];
+    [productCodeLabel release];
+    [productName release];
+    [quantityLabel release];
+    [freeLabel release];
+    [unitLabel release];
+    [priceLabel release];
+    [amountLabel release];
+}
+
++ (void)customizeRequestCell:(UITableViewCell *)cell
+{
+    UILabel *indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(55, 10, 50, 24)];
+    indexLabel.tag      = kCellIndexLabelTag;
+    indexLabel.textAlignment = UITextAlignmentLeft;
+    indexLabel.font          = [UIFont systemFontOfSize:13];
+    
+    UILabel *productCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 10, 80, 24)];
+    productCodeLabel.tag      = kCellProductCodeLabelTag;
+    productCodeLabel.textAlignment = UITextAlignmentLeft;
+    productCodeLabel.font          = [UIFont systemFontOfSize:13];
+    
+    UILabel *productName = [[UILabel alloc] initWithFrame:CGRectMake(220, 10, 140, 24)];
+    productName.tag      = kCellProductLabelTag;
+    productName.textAlignment = UITextAlignmentLeft;
+    productName.font          = [UIFont systemFontOfSize:13];
+    
+    UILabel *quantityLabel = [[UILabel alloc] initWithFrame:CGRectMake(370, 10, 40, 24)];
+    quantityLabel.tag      = kCellQuantityLabelTag;
+    quantityLabel.textAlignment = UITextAlignmentLeft;
+    quantityLabel.font          = [UIFont systemFontOfSize:13];
+    
+    UILabel *unitLabel = [[UILabel alloc] initWithFrame:CGRectMake(430, 10, 40, 24)];
+    unitLabel.tag      = kCellUnitLabelTag;
+    unitLabel.textAlignment = UITextAlignmentLeft;
+    unitLabel.font          = [UIFont systemFontOfSize:13];
+    
+    UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(485, 10, 40, 24)];
+    priceLabel.tag      = kCellPriceLabelTag;
+    priceLabel.textAlignment = UITextAlignmentLeft;
+    priceLabel.font          = [UIFont systemFontOfSize:13];
+    
+    UILabel *amountLabel = [[UILabel alloc] initWithFrame:CGRectMake(555, 10, 60, 24)];
+    amountLabel.tag      = kCellAmountLabelTag;
+    amountLabel.textAlignment = UITextAlignmentLeft;
+    amountLabel.font          = [UIFont systemFontOfSize:13];
+    
+    [cell addSubview:indexLabel];
+    [cell addSubview:productCodeLabel];
+    [cell addSubview:productName];
+    [cell addSubview:quantityLabel];
+    [cell addSubview:unitLabel];
+    [cell addSubview:priceLabel];
+    [cell addSubview:amountLabel];
+    
+    [indexLabel release];
+    [productCodeLabel release];
+    [productName release];
+    [quantityLabel release];
+    [unitLabel release];
+    [priceLabel release];
+    [amountLabel release];
 }
 
 + (void)customizeInvoiceCell:(UITableViewCell *)cell
@@ -257,6 +389,7 @@
 {
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    
     UILabel *titleLabel = [self createTitleLabel];
     
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -350,14 +483,17 @@
     UITextField *firstTextField = [[UITextField alloc] initWithFrame:CGRectMake(210, 10, 180, 24)];
     firstTextField.tag = kCellFirstTextTag;
     firstTextField.placeholder = @"Type Infomation Here";
-    firstTextField.backgroundColor = [UIColor lightGrayColor];
     firstTextField.font = [UIFont systemFontOfSize:13];
+    firstTextField.borderStyle     = UITextBorderStyleNone;
+    firstTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     UITextField *secondTextField = [[UITextField alloc] initWithFrame:CGRectMake(430, 10, 180, 24)];
     secondTextField.tag = kCellSecondTextTag;
     secondTextField.placeholder = @"Type Infomation Here";
-    secondTextField.backgroundColor = [UIColor lightGrayColor];
     secondTextField.font = [UIFont systemFontOfSize:13];
+    secondTextField.borderStyle     = UITextBorderStyleNone;
+    secondTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
     
     [cell addSubview:titleLabel];
     [cell addSubview:firstTextField];
@@ -387,6 +523,7 @@
             [FormCellGenerator customeizePickerCell:cell];
             break;
         case TextAreaType:
+            [FormCellGenerator customizeTextAreaCell:cell];
             break;
         case HeaderType:
             [FormCellGenerator customizeHeaderCell:cell];
@@ -397,6 +534,10 @@
         case PhotoType:
             break;
         case EntryType:
+            [FormCellGenerator customizeEntryCell:cell];
+            break;
+        case RequestType:
+            [FormCellGenerator customizeRequestCell:cell];
             break;
         case InvoiceType:
             [FormCellGenerator customizeInvoiceCell:cell]; 
@@ -440,6 +581,7 @@
             cellIdentifer = @"PickerCell";
             break;
         case TextAreaType:
+            cellIdentifer = @"TextAreaCell";
             break;
         case HeaderType:
             cellIdentifer = @"HeaderCell";
@@ -452,6 +594,9 @@
             break;
         case EntryType:
             cellIdentifer = @"EntryCell";
+            break;
+        case RequestType:
+            cellIdentifer = @"RequestCell";
             break;
         case InvoiceType:
             cellIdentifer = @"InvoiceCell";

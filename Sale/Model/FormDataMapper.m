@@ -7,6 +7,8 @@
 //
 
 #import "FormDataMapper.h"
+#import "Order.h"
+#import "ProductEntry.h"
 #import "Invoice.h"
 #import "BackOrder.h"
 
@@ -45,6 +47,7 @@ static FormDataMapper *dataMapper = nil;
     for (int i = 0; i < 5; i++){
         Invoice *invoice = [[Invoice alloc] init];
         [invoices addObject:invoice];
+        [invoice release];
     }
     
     return invoices;
@@ -57,9 +60,48 @@ static FormDataMapper *dataMapper = nil;
     for (int i = 0; i < 5; i++) {
         BackOrder *backOrder = [[BackOrder alloc] init];
         [backOrders addObject:backOrder];
+        [backOrder release];
     }
     
     return backOrders;
 }
+
+- (NSMutableArray *)getAllOrderEntrieswithOrderNo:(NSString *)orderNo
+{
+    NSMutableArray *entries = [NSMutableArray array];
+    
+    for (int i = 0; i < 3; i++) {
+        
+        ProductEntry *entry = [[ProductEntry alloc] init];
+        [entries addObject:entry];
+        [entry release];
+    }
+    
+    return entries;
+}
+
+- (Order *)getOrderbycustomerCode:(NSString *)customerCode
+{
+    Order *order = [[[Order alloc] init] autorelease];
+    
+    order.orderId      = @"ID";
+    order.customerCode = @"Customer Code";
+    order.category     = @"Category";
+    order.address      = @"Address";
+    order.poId         = @"P.o. Id";
+    order.billTo       = @"Bill To";
+    order.shipTo       = @"Ship To";
+    order.saleQuality  = @"Sale Quality";
+    order.focQuality   = @"FOC Quatlity";
+    order.totalAmount  = @"total AMount";
+    order.firstRemark  = @"First Remark";
+    order.secondRemark = @"Second Remark";
+    
+    order.entries = [self getAllOrderEntrieswithOrderNo:@"Order Id"];
+    
+    return order;
+}
+
+
 
 @end

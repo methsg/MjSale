@@ -10,13 +10,14 @@
 
 @interface Order : NSObject
 {   
+    NSString *_orderId;
     NSString *_customerCode;
     NSString *_role;
     NSString *_address;
     NSString *_hospital;
     NSString *_category;
     
-    NSString *_orderId;
+
     NSString *_poId;
     NSString *_saleQuality;
     NSString *_focQuality;
@@ -27,6 +28,8 @@
     
     NSString *_billTo;
     NSString *_shipTo;
+    
+    NSMutableArray *_entries;
 }
 
 @property (nonatomic, retain) NSString *customerCode;
@@ -45,5 +48,7 @@
 
 @property (nonatomic, retain) NSString *billTo;
 @property (nonatomic, retain) NSString *shipTo;
+
+@property (nonatomic, retain) NSMutableArray *entries;
 
 @end

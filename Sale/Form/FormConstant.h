@@ -21,12 +21,13 @@ typedef enum {
     InfoType         = 6,
     PhotoType        = 7,
     EntryType        = 8,
-    InvoiceType      = 9,
-    BackOrderType    = 10,
-    DoublePickerType = 11,
-    DoubleLabelType  = 12,
-    DoubleHeaderType = 13,
-    DoubleTextType   = 14,
+    RequestType      = 9,
+    InvoiceType      = 10,
+    BackOrderType    = 11,
+    DoublePickerType = 12,
+    DoubleLabelType  = 13,
+    DoubleHeaderType = 14,
+    DoubleTextType   = 15,
 }CellType;
 
 typedef enum {
@@ -50,13 +51,16 @@ typedef enum {
 #define kCellInvoiceTag      9991
 #define kCellBackOrderTag    9992
 
-#define kCellDateLabelTag     1000
-#define kCellIndexLabelTag    1001
-#define kCellProductLabelTag  1002
-#define kCellQuantityLabelTag 1003
-#define kCellFreeLabelTag     1004
-#define kCellAmountLabelTag   1005
-#define kCellReasonLabelTag   1006
+#define kCellDateLabelTag        1000
+#define kCellIndexLabelTag       1001
+#define kCellProductLabelTag     1002
+#define kCellQuantityLabelTag    1003
+#define kCellFreeLabelTag        1004
+#define kCellAmountLabelTag      1005
+#define kCellReasonLabelTag      1006
+#define kCellProductCodeLabelTag 1007
+#define kCellPriceLabelTag       1008
+#define kCellUnitLabelTag        1009
 
 #define kCellFirstPickerButtonTag  2000
 #define kCellSecondPickerButtonTag 2001
@@ -74,3 +78,11 @@ typedef enum {
 
 #define kCellInvoiceHeader   @"Date             No              Product                                 Qty        Free               Amount"
 #define kCellBackOrderHeader @"Date             No              Product                          Qty       Free      Amount      Reason"
+
+#define kCellEntryHeader @"No         Prod Code      Product      Qty      Free   Unit    Price    Amount"
+@protocol FormProtocal <NSObject>
+
+- (CellType)cellTypeForRow:(NSIndexPath *)indexPath;
+- (NSString *)titleForRow:(NSIndexPath *)indexPath;
+
+@end

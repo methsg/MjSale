@@ -84,16 +84,18 @@
     CallObjective *callObjective;
     
     switch ([indexPath section]) {
-        case 1:
+        case 2:
             callObjective = _requestCall.firstObjective;
             break;
-        case 2:
+        case 3:
             callObjective = _requestCall.secondObjective;
             break;
-        case 3:
+        case 4:
             callObjective = _requestCall.thirdObjective;
             break;
     }
+    
+    NSLog(@"%@", indexPath);
     
     switch ([indexPath row]) {
         case 0:
@@ -119,13 +121,13 @@
     CallObjective *callObjective;
     
     switch ([indexPath section]) {
-        case 1:
+        case 2:
             callObjective = _requestCall.firstObjective;
             break;
-        case 2:
+        case 3:
             callObjective = _requestCall.secondObjective;
             break;
-        case 3:
+        case 4:
             callObjective = _requestCall.thirdObjective;
             break;
     }
@@ -272,16 +274,15 @@
 {
     switch ([indexPath section]) {
         case 0:
+            return PickerType;
+        case 1:
             return LabelType;
         default:
-            
-            
             if([indexPath row] == 4) {
-             
                 return TextType;
+            } else {
+                return PickerType;    
             }
-            
-            return PickerType;
     }
 }
 
@@ -291,6 +292,9 @@
     
     switch ([indexPath section]) {
         case 0:
+            title = @"Date";
+            break;
+        case 1:
             switch ([indexPath row]) {
                 case 0:
                     title = @"Profile Code";
@@ -306,7 +310,7 @@
                     break;
             }
             break;
-        case 4:
+        case 5:
             switch ([indexPath row]) {
                 case 0:
                     title = @"Supervisor 1";
@@ -347,15 +351,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 6;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (section) {
         case 0:
+            return 1;
+        case 1:
             return 4;
-        case 4:
+        case 5:
             return 3;
         default:
             return 5;
@@ -384,12 +390,15 @@
     
     switch ([indexPath section]) {
         case 0:
+            
+            break;
+        case 1:
             if ([cell viewWithTag:kCellLabelTag]) {
                 UILabel *label = (UILabel *)[cell viewWithTag:kCellLabelTag];
                 label.text = [self getRecordCall:indexPath];
             }
             break;
-        case 4:
+        case 5:
             if ([cell viewWithTag:kCellPickerButtonTag]) {
    //             UILabel *pickerLabel = (UILabel *)[cell viewWithTag:kCellPickerLabelTag];
      //           pickerLabel.text = [self getSupervisor:indexPath];
@@ -419,15 +428,18 @@
             title = @"Record Call";
             break;
         case 1:
-            title = @"Objective 1";
+            title = @"Info";
             break;
         case 2:
-            title = @"Objective 2";
+            title = @"Objective 1";
             break;
         case 3:
-            title = @"Objective 3";
+            title = @"Objective 2";
             break;
         case 4:
+            title = @"Objective 3";
+            break;
+        case 5:
             title = @"Supervisor";
             break;
     }
